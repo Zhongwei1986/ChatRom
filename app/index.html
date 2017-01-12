@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ChatRom</title>
+    <meta name="keywords" content="ChatRom NodeJs" />
+    <meta name="description" content="a chatrom app built by NodeJs" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+    	
+    </style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="conten" id="chat">
+			<ul id="chat_container">
+				
+			</ul>
+		</div>
+		<div class="action">
+			<textarea></textarea>
+			<button class="btn btn-success btn-sm" id="send">发送</button>
+			<button class="btn btn-success btn-sm" id="clear">清屏</button>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/socket.io.min.js"></script>	
+	<script>
+		var ws = io.conncet('http://172.16.2.184:8888');
+		var sendMsg = function (msg) {
+			ws.emit('send.message', msg);
+		};
+		var addMessage = function (from, msg) {
+			var li = '<li><span>' + from + '</span>' + ":" + msg + "</li>";
+			$('#chat_container').append(li);
+
+			//设置内容区的滚动条到底部
+			
+		};
+	</script>
+</body>
+
+</html>
