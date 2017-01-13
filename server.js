@@ -13,7 +13,7 @@ var server = app.listen(3000);
 var ws = io.listen(server);
 
 
-//添加服务器连接时间，当客户端连接成功之后，发公告告诉所有在线用户，并且当用户发送消息
+//添加服务器连接事件，当客户端连接成功之后，发公告告诉所有在线用户，并且当用户发送消息
 //时，发广播通知其它用户
 
 ws.on("connection", function(client) {
